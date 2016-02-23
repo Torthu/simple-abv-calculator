@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+	<head>
+		<title>ABV Calculator</title>
+		<meta name = "viewport" content = "user-scalable=yes, initial-scale=1.0, maximum-scale=2.0, width=device-width">
+		<style type="text/css">
+
+			body {
+				margin: 0;
+				font-family: sans-serif;
+				text-align: center;
+			}
+
+			h1 {
+				background: #efefef;
+				border-bottom: 1px solid #ccc;
+				margin: 0;
+				font-size: 16px;
+				margin-bottom: 20px;
+				padding: 20px;
+				text-align:center;
+			}
+
+			.wrapper {
+				max-width: 90%;
+				margin: 0 auto;
+			}
+
+			.input-wrapper {
+				box-sizing: border-box;
+				text-align:left;
+				position: relative;
+				display: inline-block;
+				max-width: 200px;
+				width: 50%;
+				margin: 0;
+			}
+
+			#og, #fg {
+				box-sizing: border-box;
+				display: block;
+				font-size: 20px;
+				padding: 0;
+				padding-right: 15px;
+				padding-left: 55px;
+				line-height: 50px;
+				/*border-radius: 5px;*/
+				border: 1px solid #ccc;
+				width: 100%;
+			}
+
+			#og {
+				border-right: 0;
+			}
+
+			label {
+				background: #efefef;
+				/*border-top-left-radius: 6px;
+				border-bottom-left-radius: 6px;*/
+				position: absolute;
+				border-right: 1px solid #ccc;
+				width: 45px;
+				padding: 0;
+				margin:1px;
+				line-height: 50px;
+				font-size: 15px;
+				text-align:center;
+			}
+
+			#results {
+				text-align:left;
+				width: 100%;
+				margin-top: 20px;
+				max-width: 404px;
+				margin-left: auto;
+				margin-right: auto;
+				border: 1px solid #ccc;
+			}
+
+			#results th {
+				background: #333;
+				color: white;
+				padding: 8px;
+				text-align: left;
+			}
+
+			#results tr:nth-child(even) {
+				background: #efefef;
+			}
+
+			#results thead, #results td {
+				padding: 8px;
+			}
+
+			#copyright {
+				test-align:center;
+				font-size: 14px;
+				color: #ccc;
+				margin-top: 15px;
+			}
+
+
+		</style>
+	</head>
+	<body>
+		<h1>ABV calculator</h1>
+
+		<form class="wrapper">
+			<div class="input-wrapper">
+				<label for="og">OG</label>
+				<input id="og" type="number" value="1.054" min="1.000" max="1.200" step="0.001" />
+			</div><div class="input-wrapper">
+				<label for="fg">FG</label>
+				<input id="fg" type="number" value="1.010" min="1.000" max="1.200" step="0.001" />
+			</div>
+		</form>
+
+		<table id="results"></table>
+
+		<div id="copyright">Powered by Microbrew.it</div>
+
+		<script src="./bundle.js"></script>
+	</body>
+</html>
