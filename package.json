@@ -4,7 +4,7 @@
   "description": "",
   "main": "webpack.config.js",
   "dependencies": {
-    "microbrewit-formulas": "^1.0.1"
+    "microbrewit-formulas": "^1.1.0"
   },
   "devDependencies": {
     "coffee-loader": "^0.7.2",
