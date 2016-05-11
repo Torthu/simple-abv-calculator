@@ -25,6 +25,11 @@ updateABV = ->
 
 	resultElement.innerHTML = htmlString
 
+	updateUrl og, fg
+
+updateUrl = (og, fg) ->
+	window.history.pushState {}, '', "?og=#{og}&fg=#{fg}"
+
 # thune.io/abv?og=1070&fg=1006
 readUrlParams = ->
 	vars = {}

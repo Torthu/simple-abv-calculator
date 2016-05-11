@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var fgElement, mbformulas, ogElement, readUrlParams, resultElement, updateABV;
+	var fgElement, mbformulas, ogElement, readUrlParams, resultElement, updateABV, updateUrl;
 
 	mbformulas = __webpack_require__(1);
 
@@ -65,7 +65,12 @@
 	    value = mbformulas.abv.calc(og, fg, formula);
 	    htmlString += "<tr> <td>" + formula + "</td> <td>" + (value.toFixed(2)) + "%</td> </tr>";
 	  }
-	  return resultElement.innerHTML = htmlString;
+	  resultElement.innerHTML = htmlString;
+	  return updateUrl(og, fg);
+	};
+
+	updateUrl = function(og, fg) {
+	  return window.history.pushState({}, '', "?og=" + og + "&fg=" + fg);
 	};
 
 	readUrlParams = function() {
