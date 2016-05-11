@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var fgElement, mbformulas, ogElement, resultElement, updateABV;
+	var fgElement, mbformulas, ogElement, readUrlParams, resultElement, updateABV;
 
 	mbformulas = __webpack_require__(1);
 
@@ -67,6 +67,28 @@
 	  }
 	  return resultElement.innerHTML = htmlString;
 	};
+
+	readUrlParams = function() {
+	  var vars;
+	  vars = {};
+	  window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+	    return vars[key] = value;
+	  });
+	  if (vars.og) {
+	    if (vars.og > 1000) {
+	      vars.og = vars.og / 1000;
+	    }
+	    ogElement.value = vars.og;
+	  }
+	  if (vars.fg) {
+	    if (vars.fg > 1000) {
+	      vars.fg = vars.fg / 1000;
+	    }
+	    return fgElement.value = vars.fg;
+	  }
+	};
+
+	readUrlParams();
 
 	updateABV();
 
@@ -116,7 +138,11 @@
 
 	  module.exports = {
 	    available: function() {
-	      return ['miller', 'fix', 'simple', 'alternativeSimple', 'advanced', 'alternativeAdvanced', 'microbrewit'];
+	      var available;
+	      available = Object.keys(this);
+	      available.splice(available.indexOf('available'), 1);
+	      available.splice(available.indexOf('calc'), 1);
+	      return available;
 	    },
 	    miller: function(og, fg) {
 	      var calc;
@@ -5115,7 +5141,10 @@
 
 	  module.exports = {
 	    available: function() {
-	      return ['rager', 'tinseth'];
+	      var available;
+	      available = Object.keys(this);
+	      available.splice(available.indexOf('available'), 1);
+	      return available;
 	    },
 	    rager: function(hopObj) {
 	      var ibu, mgl, utilisation;
@@ -5158,7 +5187,10 @@
 
 	  module.exports = {
 	    available: function() {
-	      return ['morey', 'daniels', 'mosher'];
+	      var available;
+	      available = Object.keys(this);
+	      available.splice(available.indexOf('available'), 1);
+	      return available;
 	    },
 	    mcu: function(weight, lovibond, postBoilVolume) {
 	      var volume;

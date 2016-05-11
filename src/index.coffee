@@ -25,6 +25,22 @@ updateABV = ->
 
 	resultElement.innerHTML = htmlString
 
+# thune.io/abv?og=1070&fg=1006
+readUrlParams = ->
+	vars = {}
+	window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, (m,key,value) -> vars[key] = value)
+
+	if vars.og
+		if vars.og > 1000
+			vars.og = vars.og / 1000
+		ogElement.value = vars.og
+
+	if vars.fg
+		if vars.fg > 1000
+			vars.fg = vars.fg / 1000
+		fgElement.value = vars.fg
+
+readUrlParams()
 updateABV()
 
 ogElement.addEventListener 'change', updateABV, false
